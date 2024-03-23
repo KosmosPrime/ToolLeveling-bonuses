@@ -94,16 +94,6 @@ public final class ToolLevelingConfig extends AbstractConfig {
         return total;
     }
 
-    @Deprecated
-    public boolean isBonusItemStrength(ItemStack stack) {
-        for (BonusIngredient bonus : bonusIngredients.get()) {
-            if (bonus.ingredient().test(stack) && bonus.maxLevelBonus() != 0) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public int getBonusItemStrength(ItemStack stack) {
         int total = 0;
         for (BonusIngredient bonus : bonusIngredients.get()) {
@@ -112,16 +102,6 @@ public final class ToolLevelingConfig extends AbstractConfig {
             }
         }
         return total;
-    }
-
-    @Deprecated
-    public boolean isBonusItemIterations(ItemStack stack) {
-        for (BonusIngredient bonus : bonusIngredients.get()) {
-            if (bonus.ingredient().test(stack) && bonus.iterationsBonus() != 0) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public int getBonusItemIterations(ItemStack stack) {

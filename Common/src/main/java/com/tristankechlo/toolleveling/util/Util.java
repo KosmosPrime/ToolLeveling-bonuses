@@ -67,9 +67,9 @@ public final class Util {
     }
 
     private static int getIterations(Function<Integer, ItemStack> f) {
-        int count = Predicates.BASE_ITERATIONS_VAL.getAsInt();
+        int count = ToolLevelingConfig.INSTANCE.getBaseIterations();
         for (int i : BONUS_SLOTS) {
-            count += Predicates.BONUS_ITEM_ITERATIONS_VAL.applyAsInt(f.apply(i));
+            count += ToolLevelingConfig.INSTANCE.getBonusItemIterations(f.apply(i));
         }
         return count;
     }
@@ -79,9 +79,9 @@ public final class Util {
     }
 
     private static int getEnchantmentMinStrength(Function<Integer, ItemStack> f) {
-        int count = Predicates.BASE_MIN_STRENGTH_VAL.getAsInt();
+        int count = ToolLevelingConfig.INSTANCE.getBaseMinStrength();
         for (int i : BONUS_SLOTS) {
-            count += Predicates.BONUS_ITEM_MIN_STRENGTH_VAL.applyAsInt(f.apply(i));
+            count += ToolLevelingConfig.INSTANCE.getBonusItemMinStrength(f.apply(i));
         }
         return count;
     }
@@ -91,9 +91,9 @@ public final class Util {
     }
 
     private static int getEnchantmentStrength(Function<Integer, ItemStack> f) {
-        int count = Predicates.BASE_STRENGTH_VAL.getAsInt();
+        int count = ToolLevelingConfig.INSTANCE.getBaseStrength();
         for (int i : BONUS_SLOTS) {
-            count += Predicates.BONUS_ITEM_STRENGTH_VAL.applyAsInt(f.apply(i));
+            count += ToolLevelingConfig.INSTANCE.getBonusItemStrength(f.apply(i));
         }
         return count;
     }
